@@ -1,0 +1,13 @@
+
+.news{
+    display: flex;
+    background-color:  #115c9b;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  
+  .news > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;  
+  }

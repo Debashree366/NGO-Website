@@ -1,0 +1,49 @@
+
+<div id="news-section">
+
+    <header class="main-header">
+    
+    
+        <div class="page-heading text-center">
+    
+            <div class="container zoomIn animated">
+                
+                <h1 class="page-title">NEWS <span class="title-under"></span></h1>
+                <p class="page-description">
+                    Stay Tuned Stay Updated !<br>
+                    Follow the latest News.
+                </p>
+                
+            </div>
+    
+        </div>
+    </header>
+    
+
+
+
+	<div class="main-container">
+
+       <h1>Latest News</h1>
+    
+ <div *ngIf="newsData" class="news">
+     <div *ngFor="let n of newsData">
+         <h3>{{n.title}}</h3>
+             <div><img [src]="n.urlToImage" width="300" height="200"></div>
+      <div> 
+          <p> {{n.description}} </p>  
+  </div>  
+      <hr/>
+
+  
+
+
+   </div>
+</div>
+
+
+ </div>
+
+
+ 
+    

@@ -1,0 +1,129 @@
+<div id="login-section">
+
+    <header class="main-header">
+    
+    
+        <div class="page-heading text-center">
+    
+            <div class="container zoomIn animated">
+                
+                <h1 class="page-title">LOGIN <span class="title-under"></span></h1>
+                <p class="page-description">
+                    Login to know more & Stay connected.<br>
+                </p>
+                
+            </div>
+    
+        </div>
+    </header>
+
+    <div class="main-container">
+      <div class="container">
+
+
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h1 class="page-title">Login</h1>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email"
+                     class="form-control"
+                     formControlName="email">
+            </div>
+            <div *ngIf="isValidInput('email')"
+              class="alert alert-danger">
+              <div *ngIf="loginForm.controls['email'].errors.required">
+                Email is required.
+              </div>
+              <div *ngIf="loginForm.controls['email'].errors.pattern">
+                Must be a valid email format.
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password"
+                     class="form-control"
+                     formControlName ="password">
+            </div>
+            <div *ngIf="isValidInput('password')"
+              class="alert alert-danger">
+              <div *ngIf="loginForm.controls['password'].errors.required">
+                Password is required.
+              </div>
+            </div>
+  
+            <button mat-raised-button color="warn"
+            [disabled]="!loginForm.valid"
+            type="submit" 
+            class="btn btn-warning"
+            >Sign In</button>
+          </form>
+        </div>
+      </div>
+  </div>
+      </mat-grid-tile>
+
+  
+
+  
+
+    
+
+    
+  <mat-grid-tile>
+<div class="jumbotron bg-transparent text-center">
+    <div *ngIf="!user" class="card text-center">
+      <h6 class="card-header">
+        Social Login 
+      </h6>
+      <div class="card-block">
+        <h4 class="card-title">Not signed in</h4>
+        <!--<p class="card-text">Sign in with</p>-->
+      </div>
+    <!--  <div class="card-block">
+        <button (click)="signInWithGoogle()"><img src="assets/images/login/gplus-icons-btn.png" class="social-icon"  alt=" " ></button> 
+           <button (click)="signInWithFB()"><img src="assets/images/login/fb-icon-btn.png" class="social-icon" alt=" "></button> 
+      </div>-->
+
+      
+      <div class="example-button-row">
+  
+      <button mat-raised-button color="warn" (click)="signInWithGoogle()">Sign in with Google</button><br><br>
+      <button mat-raised-button color="primary" (click)="signInWithFB()">Sign in with Facebook</button>
+  
+      </div>
+
+
+    </div>
+    <div *ngIf="user" class="card text-center">
+      <h6 class="card-header">
+        Social Login Demo
+      </h6>
+      <div class="card-block"></div>
+      <img *ngIf="user.photoUrl" class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+      <div class="card-block">
+        <h4 class="card-title">{{ user.name }}</h4>
+        <p class="card-text">{{ user.email }}</p>
+        <p class="card-text">Logged in with {{ user.provider }}</p>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+      </div>
+    </div>
+  
+</div>
+
+</mat-grid-tile>
+</mat-grid-list>
+</div>
+</div>
+</div>
+
+
+  
